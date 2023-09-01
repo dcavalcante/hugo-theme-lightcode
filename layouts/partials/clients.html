@@ -1,0 +1,8 @@
+<h2>Previous Clients</h2>
+<ul class="about-clients">
+  {{ range .Site.Data.about.clients }}
+    <li>
+      <img src="/images/clients/{{ .image }}" alt="{{ .name }}">
+    </li>
+  {{ end }}
+</ul>

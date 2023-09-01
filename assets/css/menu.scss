@@ -55,6 +55,34 @@
       }
     }
 
+    a {
+      transition: background-color .2s ease-in-out, color .2s ease-in-out;
+      &.home {
+        background-color: $blue;
+        border: none;
+        &:hover {
+          background-color: transparent;
+          color: $blue;
+        }
+      }
+      &.about {
+        background-color: $green;
+        border: none;
+        &:hover {
+          background-color: transparent;
+          color: $green;
+        }
+      }
+      &.lab {
+        background-color: $red;
+        border: none;
+        &:hover {
+          background-color: transparent;
+          color: $red;
+        }
+      }
+    }
+
     @media ($phone) {
       flex-direction: column;
       align-items: flex-start;
@@ -64,6 +92,7 @@
         margin: 0;
         padding: 5px;
       }
+      
     }
   }
 

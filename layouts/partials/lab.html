@@ -1,0 +1,15 @@
+<ul class="lab-projects">
+  {{ range .Site.Data.lab.projects }}
+    <li>
+      <a href="{{ .url }}">
+        <div class="image">
+          <img src="/images/lab/{{ .image }}" alt="{{ .name }}">
+        </div>
+        <div class="description">
+          <h3>{{ .title }}</h3>
+          <p>{{ .description }}</p>
+        </div>
+      </a>
+    </li>
+  {{ end }}
+</ul>

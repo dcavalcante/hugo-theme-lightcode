@@ -12,7 +12,8 @@
     {{ if .IsHome }}
       {{ $PageContext = .Site }}
     {{ end }}
-    {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
+    {{ $sortedPages := sort $PageContext.RegularPages "Date" "desc" }}
+    {{ $paginator := .Paginate (where $sortedPages "Type" $contentTypeName) }}
 
     {{ range $paginator.Pages }}
       <article class="post on-list">
@@ -26,28 +27,21 @@
               {{- .Date.Format "2006-01-02" -}}
             </time>
           {{- end -}}
+          {{- with .Description -}}
+            <span class="post-description">{{ . }}</span>
+          {{- end -}}
           {{- with .Params.Author -}}
             <span class="post-author">{{ . }}</span>
           {{- end -}}
         </div>
-
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-              {{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-        {{ end }}
 
         {{ partial "cover.html" . }}
 
         <div class="post-content">
           {{ if .Params.showFullContent }}
             {{ .Content }}
-          {{ else if .Description }}
-            {{ .Description | markdownify }}
+          {{/*  {{ else if .Description }}
+            {{ .Description | markdownify }}  */}}
           {{ else }}
             {{ .Summary }}
           {{ end }}

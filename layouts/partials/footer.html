@@ -1,14 +1,15 @@
 <footer class="footer">
+  <div class="footer__inner accent">
+    Contact me
+  </div>
   <div class="footer__inner">
-    {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">
-        <span>{{ $.Site.Copyright | safeHTML }}</span>
+    {{ with .Site.Data.footer }}
+      {{- range .item -}}
+        <a href="{{ .url }}"><i class="{{ .icon }}" title="{{ .name }}"></i></a>
+      {{- end -}}
     {{ else }}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io">Hugo</a></span>
+      <div>Just a footer.</div>
     {{ end }}
-      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
-      </div>
   </div>
 </footer>
 

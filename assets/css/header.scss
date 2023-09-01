@@ -16,6 +16,7 @@
   &__logo {
     display: flex;
     flex: 1;
+    pointer-events: none;
 
     &:after {
       content: '';
@@ -23,12 +24,59 @@
       display: block;
       width: 100%;
       right: 10px;
+      animation: reverseBackground .2s ease-in-out forwards;
+
     }
 
+    &:hover {
+      &:after {
+        animation: changeBackground .2s ease-in-out forwards;
+        // background: repeating-linear-gradient(90deg, transparent, transparent 2px, $accent 0, $accent 10px);
+      }
+    }
+    
     a {
       flex: 0 0 auto;
       max-width: 100%;
       text-decoration: none;
+      pointer-events: auto;
     }
+  }
+}
+
+@keyframes changeBackground {
+  0% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 2px, transparent 0, transparent 10px);
+  }
+  25% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 4px, transparent 0, transparent 10px);
+  }
+  50% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 6px, transparent 0, transparent 10px);
+  }
+  75% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 8px, transparent 0, transparent 10px);
+  }
+  100% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 10px, transparent 0, transparent 10px);
+  }
+}
+
+
+@keyframes reverseBackground {
+  0% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 10px, transparent 0, transparent 10px);
+  }
+  25% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 8px, transparent 0, transparent 10px);
+  }
+  50% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 6px, transparent 0, transparent 10px);
+  }
+  75% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 4px, transparent 0, transparent 10px);
+  }
+  100% {
+    background: repeating-linear-gradient(90deg, $accent, $accent 2px, transparent 0, transparent 10px);
   }
 }

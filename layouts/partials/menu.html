@@ -3,7 +3,9 @@
     {{ if or $.Site.Params.showMenuItems ( eq .Site.Params.showMenuItems 0 ) }}
       {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
         {{ if not .HasChildren }}
-          <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+          <li><a class="{{ .Identifier }} button" href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>
+            <span class="button__text">{{ .Name }}</span>
+          </a></li>
         {{ end }}
       {{ end }}
       {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
