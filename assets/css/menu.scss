@@ -118,6 +118,7 @@
 
   &__dropdown {
     @include menu;
+    border-color: $accent;
 
     .open & {
       display: flex;
@@ -133,6 +134,15 @@
       a {
         display: flex;
         padding: 5px;
+        &.home {
+          color: $blue;
+        }
+        &.about {
+          color: $green;
+        }
+        &.lab {
+          color: $red;
+        }
       }
     }
   }

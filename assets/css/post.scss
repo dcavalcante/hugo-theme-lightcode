@@ -143,8 +143,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
   margin: 0;
   padding: 0;
   li {
-    // width: 15%;
-    margin: 0 1rem 3rem;
+    margin: 0 .5rem 3rem;
     border: 1px dashed $accent;
     padding: 1rem;
     &:before {
@@ -185,6 +184,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
     justify-content: center;
     max-width: 150px;
     max-height: 200px;
+    margin-right: 1rem;
   }
   img {
     // max-width: 80%
