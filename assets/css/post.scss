@@ -102,6 +102,22 @@
       color: $accent;
     }
   }
+
+  p {
+    &.center {
+      text-align: center;
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    &.smaller {
+      img {
+        max-width: 50%;
+      }
+    }
+  }
+
 }
 
 .post--regulation {
@@ -143,7 +159,8 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
   margin: 0;
   padding: 0;
   li {
-    margin: 0 .5rem 3rem;
+    // width: 15%;
+    margin: 0 1rem 3rem;
     border: 1px dashed $accent;
     padding: 1rem;
     &:before {
@@ -151,7 +168,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
     }
   }
   img {
-    max-width: 110px;
+    max-width: 115px;
     opacity: .8;
   }
 }
@@ -184,7 +201,6 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
     justify-content: center;
     max-width: 150px;
     max-height: 200px;
-    margin-right: 1rem;
   }
   img {
     // max-width: 80%
